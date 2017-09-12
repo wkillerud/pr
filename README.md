@@ -1,207 +1,180 @@
 # pr
 
-Her kan du få prøve deg på den såkalte Forking workflowen. Målet ditt
-er å få en endring merget inn i dette repositoryet (`wkillerud/pr`).
+Here you will get to try out the so-called Forking workflow. Your
+goal is to get a change merged to this repository (`wkillerud/pr`).
 
-Om du støter på et ord eller begrep du ikke forstår kan det hende
-du finner en forklaring på
-[Github sin Github Glossary](https://help.github.com/articles/github-glossary/).
+If you run into a word or term you don't understand it might be
+explained in the
+[Github Glossary](https://help.github.com/articles/github-glossary/).
 
-Du finner noen lenker til annet hjelpemateriale om Git nederst i
-denne filen.
+You'll also find some links to other material on Git at the bottom
+of this file.
 
-## Hva du trenger
+## Prerequisites
 
-* Git, enten via [terminalen (anbefales)](https://git-scm.com/) eller
-med en GUI som for eksempel Github sin egen app, SourceTree eller 
-TortioseGit.
-* For å lage en pull request på Github må du ha en Github-konto
+* [Git](https://git-scm.com/), either via the terminal (recommended)
+or via a GUI like the Github app, SourceTree, or TortoiseGit.
+* A Github account so you can make pull requests to this repository.
+
+It also helps if you've followed the
+[Setting up Git](https://help.github.com/articles/set-up-git/) guide on Github
 
 ## PR 101
 
-Kort fortalt er det åtte steg for å komme i mål.
-Stegene blir beskrevet i mer detalj senere.
+TL;DR - there are eight steps to creating a PR:
 
-1. Lag en fork av dette repositoryet
-2. Klon din fork til PCen din
-3. Lag en branch fra `master`
-4. Gjør en endring
-5. Lag en commit med endringen din
-6. Push endringen til din fork
-7. Lag en pull request mot `wkillerud/pr` sin `master` branch
-8. Jeg ser over pull requesten, og hvis alt ser OK ut merger jeg den
+1. Fork this repository
+2. Clone your fork to your PC
+3. In your local clone, create a branch from `master`
+4. Change or add a file
+5. Commit your change
+6. Push the changes to your fork
+7. Create a pull request to the `master` branch of `wkillerud/pr`
+8. I'll look over the pull request, and if it looks OK I'll merge it!
 
 ### Forking
 
-Du lager en fork av dette repositoryet ved å trykke på Fork-knappen
-øverst til høyre. Github bruker noen sekunder på å lage en kopi som
-legges under din brukerkonto.
-
-Når Github er ferdig med kopieringen blir du tatt til forken din.
-Under navnet på repositoryet oppe til venstre skal det stå
-"forked from wkillerud/pr".
+You create a fork by pressing the Fork-button to the top-right of the
+screen. Github takes a few seconds to create your fork. When the fork
+is created it should say "forked from wkillerud/pr" to the top-left.
 
 ### Cloning
 
-For de fleste endringer vil du trenge å jobbe på PCen din. Github
-har etter hvert fått støtte for å endre filer i nettleseren, men
-det blir å jukse litt ;)
-
-For å få filene ned på PCen din må du lage en klone. Trykk på den
-grønne "Clone or download"-knappen. Kopier adressen.
-
-Start Git Bash eller en annen Git-klient og klon repositoryet ditt:
+For all but the very basic changes you need to work on your PC. To get
+the files and their history to your PC you need to clone your forked
+repository. Click the "Clone or download" button to do this. Copy
+the address to the repository and enter it in your terminal like so:
 
 ```
 $ git clone https://github.com/DITT_BRUKERNAVN/pr.git
 ```
 
-> Om du får en feilmelding om at HTTPS ikke støttes må du trykke
-> "Use SSH" i popupen til "Clone or download". Github sine hjelpesider
-> burde forklare hva som må gjøres.
+> If you get complaints that the client does not support HTTP(S), use
+> the SSH variant instead. See Github help for how to set this up.
 
 ### Branching
 
-Før man gjør endringer er det god praksis å lage sin egen branch.
-Det gjør at det er enklere å gå tilbake til en fungerende versjon
-om noe skulle gå galt, og det er lettere å jobbe sammen med andre
-som gjør endringer i den samme koden.
+Before making changes it it good practice to create a branch. This makes
+it easier to track changes, work with other developers, and go back if
+something breaks.
 
-For å lage en branch man skal jobbe på med én gang bruker man ofte
-denne kommandoen:
+To create a branch and immediately start working, use this command:
 
 ```
 $ git checkout -b feature/my-shiny-new-thing
 ```
 
-`-b` gjør at Git lager branchen med navnet
-`feature/my-shiny-new-thing` for deg. Det er en raskere måte å skrive
-dette på:
+`-b` makes Git create the branch `feature/my-shiny-new-thing` for you.
+It's a short-hand form of this:
 
 ```
 $ git branch feature/my-shiny-new-thing
 $ git checkout feature/my-shiny-new-thing
 ```
 
-### Gjør en endring
+### Make a change
 
-Her står du ganske fritt. Du kan lage en ny fil med noe gøy, eller du
-kan endre på en fil som allerede finnes. Du kan for eksempel legge til
-navnet eller brukernavnet ditt i filen `CONTRIBUTORS.md`.
+This one is up to you. Create a new file, or change an existing one.
+For instance you can add your name to the Contributors list, fix
+spelling errors, or add new material on Git to the section at the
+bottom.
 
-Åpne filen i en editor av eget valg, eksempelvis Atom, Visual
-Studio Code, Sublime Text, Nodepad++, vim - så lenge den kan åpne en
-tekstfil gjør den nytten :)
+### Commit your change
 
-Gjør endringen din og lagre.
+To share your change you have to "store" it in the Git repository.
+Doing this is a two-step process in Git:
 
-### Lag en commit
+1. Prepare, or stage your change using `git add CONTRIBUTORS.md`
+2. Commit your change using `git commit`
 
-For å kunne dele endringen din må du commite den. Det er en
-tostegsprosess med Git.
-
-1. Stage endringen din med `git add CONTRIBUTORS.md`
-2. Commit endringen din med `git commit`
-
-Om du ikke har så mye på hjertet kan du bruke denne kommandoen:
+If you are short on words you can use this shortcut and type a log
+message directly from the terminal:
 
 ```
-$ git commit -m "Dette er min commitmelding"
+$ git commit -m "Words are hard"
 ```
 
-Som standard tar nemling `git commit` deg til en terminalbasert
-editor kalt `vim`, så vidt nevnt i forrige seksjon.
-Formålet er å gi en en beskrivelse av endringen du har gjort
-som kommer til å synes i historikken til dette repositoriet.
-Du kan se hvordan en commitmelding vil se ut ved å skrive kommandoen
-`git log`.
+Plain `git commit` usually opens `vim`, a terminal based text editor,
+so you can write a more detailed description of your change and the
+reasoning behind it. This helps future developers get the proper context
+when looking at a piece of code, and is very helpful! Take a look at this
+repositorys commit messages using the command `git log`.
 
-#### Hvorfor skrive meldinger?
+Try to avoid writing short messages when working with Git, especially with
+other developer. I recommend using just the command `git commit` so you
+are encouraged to flesh out the commit message. This does require some
+knowledge of `vim` (the editor can be changed if you want to).
 
-Det anbefales å skrive gode meldinger for å gjøre det lettere for
-andre som jobber med koden å se hvorfor en endring ble gjort. Det
-er ikke så farlig her, men jeg anbefaler likevel å komme inn i vanen
-med å skrive gode meldinger, så prøv å unngå å bruke `-m` om du kan.
+A crash course to using `vim` for commit messages: 
 
-For å skrive en commitmelding i vim må du kjenne til noen få
-vim-kommandoer:
+* Press `i` to enter _insert mode_, which lets you write text
+* Press `ESC` to go back to _command mode_
+* Press `:x` (colon, then x, then Enter) to save your message and exit
+* If you want to abort, press `:q!` (colon, then q, then !)
 
-* Trykk `i` for å gå i _insert mode_, som lar deg skrive tekst
-* Trykk `ESC` for å gå tilbake til _command mode_
-* Trykk `:x` (kolon, så x, så Enter) for å lagre meldingen og gå ut
-av vim
+### Push the changes to your fork
 
-Om du vil unngå vim kan du be Git bruke en annen editor. Sjekk
-dokumentasjonen på [Git sine hjemmesider](https://git-scm.com).
-
-### Push endringen til din fork
-
-For å gjøre endringen din tilgjengelig for en pull request må den
-publiseres på Github. For å gjøre det må du bruke kommandoen
+To make your changes ready for a pull request they need to be publbicly
+available. To push your changes to your Github fork use the command
 `git push origin HEAD`.
 
-Om alt går etter planen skal du få denne beskjeden:
+If everything went according to plan you should get something like this:
 
 ```
 To github.com:DITT_BRUKERNAVN/pr.git
  * [new branch]      HEAD -> feature/my-shiny-new-thing
 ```
 
-Du kan dobbeltsjekke på Github.com at endringen er pushet
-ved å se etter branchen din i nedtrekksmenyen til venstre 
-("Branch: master").
+You can double check that your change made it to Github by checking the
+list of branches in the dropdown to the top-left that says "Branch: master".
 
-### Lag en pull request!
+### Make a pull request!
 
-Github er ganske hjelpsom, så om du ser på repositoryet ditt på
-Github etter å ha pushet en endring vil du få spørsmålet om du
-vil lage en pull request.
+Github is pretty clever, so if you look at your repository after pushing a
+new branch it will show a helpful button to create a pull request. Click 
+"Compare & pull request".
 
-Trykk på "Compare & pull request"-knappen. Du tas til en ny side
-der du kan se over endringene dine og komme med en beskrivelse som
-vises i pull requesten på Github. Det er også en håndfull
-nedtrekksmenyer der du kan velge ting som _target branch_ og liknende.
-Github bør ha valgt riktige verdier her som standard, så de kan du
-la være enn så lenge.
+On the page you are taken to you can look over your changes and edit a proper
+description of the pull request. You can also change the target for the pull
+request, but the default settings should be what you want here.
 
-Om endringene du gjorde ser OK ut når du scroller ned på siden kan
-du trykke på knappen "Create pull request".
+If everything looks good, click "Create pull request".
 
-Gratulerer, og tusen takk - du har nå laget en pull request!
+### Merging
 
-### Merging av pull request
+Well done! You have created a PR. Now you need to wait for the maintainer
+(that's me!) to look over the PR, and if everything checks out it will be
+merged.
 
-Nå er det opp til eieren av repositoryet (that's me!) å gå igjennom
-pull requesten. Om alt ser OK ut for eieren vil hen merge pull
-requesten. Endringen er nå "offisiell", og du er en contributor.
+#### What if something's off?
 
-### Bonus: bruk din nye super power
+This is where things can get tricky. A maintainer may ask you to make changes
+to the code, or perhaps even just to the commit log. Here you just have to work
+with the maintainer to get to a solution, and use Google to your advantage.
 
-Nå som du vet hvordan pull requests fungerer, hvorfor ikke bruke
-kunnskapen til å hjelpe et open source prosjekt?
+### Bonus: use your new powers for good!
 
-freeCodeCamp har [en fin artikkel](https://medium.freecodecamp.org/finding-your-first-open-source-project-or-bug-to-work-on-1712f651e5ba)
-om hvor og hvordan man kan bidra til et prosjekt som nybegynner. Om
-du en gang lager et pull request og føler du sitter fast kan du pinge
-meg (wkillerud) her på Github, så kan jeg se om jeg kan lose deg
-igjennom :)
+Now that you know your way around a pull request, why not use that knowledge
+to help open source projects?
 
-Lykke til!
+freeCodeCamp has [a great article](https://medium.freecodecamp.org/finding-your-first-open-source-project-or-bug-to-work-on-1712f651e5ba)
+on where and how you can contribute to open source as a rookie.
+If you ever get stuck on a pull request feel free to ping me (wkillerud)
+here on Github and I'll see if I can help you _pull through_.
 
-## Litt materiale om Git
+Go get 'em!
 
-[Atlassian har en veldig god guide til Git](https://www.atlassian.com/git/tutorials/what-is-version-control)
-som starter med det grunnleggende og går videre til å dekke
-flere nyttige temaer som ulike workflows, blant annet den som ble
-introdusert over ([Forking Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows#forking-workflow)).
+## Some material on Git
 
-Github har noe hjelpemateriale for å komme i gang:
+[Atlassian has an excellent guide.](https://www.atlassian.com/git/tutorials/what-is-version-control)
+It starts with the basics, but goes on to cover several very useful topics like different workflows,
+such as the forking workflow you've seen here.
+
+Github also has some material to get you started:
 
 * [Hello, world!](https://guides.github.com/activities/hello-world/).
-Introduksjon til noen kjernekonsept. Bruker Github.com, ikke terminal.
-* [Bootcamp](https://help.github.com/). Litt mer hands-on.
+* [Bootcamp](https://help.github.com/).
 
-Om du er mer viderekommen finnes det en gratis bok som går i dybden:
+There's also a free book that goes in-depth when you feel ready:
 
 * [Pro Git](https://git-scm.com/book/en/v2)
-
