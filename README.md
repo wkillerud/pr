@@ -25,11 +25,11 @@ TL;DR - there are eight steps to creating a PR:
 
 1. Fork this repository
 2. Clone your fork to your PC
-3. In your local clone, create a branch from `master`
+3. In your local clone, create a branch from `main`
 4. Change or add a file
 5. Commit your change
 6. Push the changes to your fork
-7. Create a pull request to the `master` branch of `wkillerud/pr`
+7. Create a pull request to the `main` branch of `wkillerud/pr`
 8. I'll look over the pull request, and if it looks OK I'll merge it!
 
 ### Forking
@@ -105,7 +105,7 @@ other developer. I recommend using just the command `git commit` so you
 are encouraged to flesh out the commit message. This does require some
 knowledge of `vim` (the editor can be changed if you want to).
 
-A crash course to using `vim` for commit messages: 
+A crash course to using `vim` for commit messages:
 
 * Press `i` to enter _insert mode_, which lets you write text
 * Press `ESC` to go back to _command mode_
@@ -126,12 +126,12 @@ To github.com:DITT_BRUKERNAVN/pr.git
 ```
 
 You can double check that your change made it to Github by checking the
-list of branches in the dropdown to the top-left that says "Branch: master".
+list of branches in the dropdown to the top-left that says "Branch: main".
 
 ### Make a pull request!
 
 Github is pretty clever, so if you look at your repository after pushing a
-new branch it will show a helpful button to create a pull request. Click 
+new branch it will show a helpful button to create a pull request. Click
 "Compare & pull request".
 
 On the page you are taken to you can look over your changes and edit a proper
